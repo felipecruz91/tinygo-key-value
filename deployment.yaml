@@ -1,0 +1,25 @@
+apiVersion: node.k8s.io/v1
+kind: RuntimeClass
+metadata:
+  name: spin
+handler: spin
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tinygo-key-value
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tinygo-key-value
+  template:
+    metadata:
+      labels:
+        app: tinygo-key-value
+    spec:
+      runtimeClassName: spin
+      containers:
+      - name: spin-hello
+        image: docker.io/felipecruz/tinygo-key-value:latest
+        command: ["/"]
