@@ -1,0 +1,13 @@
+spin_version = "1"
+authors = ["felipecruz91 <felipecruz91@hotmail.es>"]
+description = ""
+name = "tinygo-key-value"
+trigger = { type = "http", base = "/test" }
+version = "0.1.0"
+
+[[component]]
+id = "tinygo-key-value"
+source = "main.wasm"
+key_value_stores = ["default"]
+[component.trigger]
+route = "/..."
